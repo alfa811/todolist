@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 
-{% block main %}
-    <form class="d-flex">
-        <input class="form-control me-2" placeholder="Todos" aria-label="Todos">
+{% block content %}
+    <form action="/" method="post" class="d-flex addbox">
+        <input class="form-control me-2" name="todos" id="todos" placeholder="Todos" aria-label="Todos">
         <button class="btn btn-outline-success" type="submit">enter</button>
     </form>
+    <ul>
+        
+    </ul>
 {% endblock %}

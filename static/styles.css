@@ -5,3 +5,19 @@
     top: 120px;
     font-size: 80px;
 }
+
+.addbox
+{
+    position: relative;
+    height: 100px;
+    width: 400px;
+    top: 190px;
+    margin-left: 40%;
+}
+
+.ok
+{
+    height: 50%;
+    width: 120%;
+    display: flex;
+}

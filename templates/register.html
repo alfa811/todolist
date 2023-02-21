@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <form action="/register" method="post" class="d-flex addbox">
+        <div class="ok">
+            <input class="form-control me-2" name="username" id="username" placeholder="Username" aria-label="Username">
+            <input class="form-control me-2" name="password" id="password" placeholder="Password" aria-label="Password">
+            <input class="form-control me-2" name="confirmation" id="confirmation" placeholder="Confirmation" aria-label="Confirmation">
+        </div>
+        <button class="btn btn-outline-success" type="submit">Register</button>
+    </form>
+{% endblock %}
