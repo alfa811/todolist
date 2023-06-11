@@ -3,10 +3,19 @@
 {% block content %}
     <form action="/register" method="post" class="d-flex addbox">
         <div class="ok">
-            <input class="form-control me-2" name="username" id="username" placeholder="Username" aria-label="Username">
-            <input class="form-control me-2" name="password" id="password" placeholder="Password" aria-label="Password">
-            <input class="form-control me-2" name="confirmation" id="confirmation" placeholder="Confirmation" aria-label="Confirmation">
+            <input autocomplete="off" class="form-control me-2" name="username" id="username" placeholder="Username" aria-label="Username">
+            <input autocomplete="off" class="form-control me-2" name="password" id="password" placeholder="Password" aria-label="Password" type="password">
+            <input autocomplete="off" class="form-control me-2" name="confirmation" id="confirmation" placeholder="Confirmation" aria-label="Confirmation" type="password">
         </div>
         <button class="btn btn-outline-success" type="submit">Register</button>
     </form>
+    {% if err_msg %}
+        <div class="ok todos">
+            {{ err_msg }}
+        </div>
+    {% elif errmsg %}
+        <div class ="ok todos">
+            {{ errmsg }}
+        </div>
+    {% endif %}
 {% endblock %}

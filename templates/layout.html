@@ -13,18 +13,47 @@
         <link href="/static/styles.css" rel="stylesheet">
 
         <title>To-Do List</title>
+
     </head>
+
     <body>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2490/2490402.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                    TODO
-                </a>
-                <form class="d-flex">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="navbar-brand ml-auto navbar-nav" href="#">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2490/2490402.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+                                TODO
+                            </a>
+                        </li>
+                        {% if not "user_id" in session or session["user_id"] == None %}
+                            <li class="nav-item">
+                                <a class="navbar-nav navbar-brand ml-auto" href="/register">
+                                    Register
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="navbar-nav navbar-brand ml-auto" href="/login">
+                                    Login
+                                </a>
+                            </li>
+                    </ul>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="navbar-nav navbar-brand ml-auto" href="/logout">
+                                    Logout
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="navbar-nav navbar-brand ml-auto" href="/logout">
+                                    Welcome, {{session['user_id']}}
+                                </a>
+                            </li>
+                        {% endif %}
+<!--               <form class="d-flex">
                   <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                </form>-->
             </div>
         </nav>
         <h1 class="header">TODO LIST</h1>

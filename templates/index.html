@@ -2,10 +2,25 @@
 
 {% block content %}
     <form action="/" method="post" class="d-flex addbox">
-        <input class="form-control me-2" name="todos" id="todos" placeholder="Todos" aria-label="Todos">
+        <input autocomplete="off" class="form-control me-2" name="todos" id="todos" placeholder="Todos" aria-label="Todos">
         <button class="btn btn-outline-success" type="submit">enter</button>
     </form>
-    <ul>
-        
-    </ul>
+    <form method="POST" action="/record-todos">
+        <ul style="list-style: none;">
+            {% for todo in todos %}
+                <li class="todos">
+                    <label>
+                        {% if todo[1] == 1 %}
+                        <input type="checkbox" name="todos" value="{{ todo[2] }}"  checked >
+                        {% else %}
+                        <input type="checkbox" name="todos" value="{{ todo[2] }}">
+                        {% endif %}
+                        {{ todo[0] }}
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+        <button class="btn btn-outline-success update" type="submit">Update</button>
+    </form>
+
 {% endblock %}
