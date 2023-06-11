@@ -109,12 +109,10 @@ def process_form():
         done_todos = request.form.getlist("todos")
         
         for todo_id in done_todos:
-            print("%r" % todo_id, file=sys.stderr)
             cur.execute("UPDATE todos SET done = 1 WHERE id = ?", (todo_id,))
             con.commit()
         todos = query_todos()
         return render_template("index.html", todos=todos)
 
-    print("back from /record-todos. user id = %s" % session['user_id'])
 
     return render_template("index.html")
